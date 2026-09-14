@@ -1,12 +1,12 @@
 {
     "display_name": "LightDark",
-    "loading_order": 998,
+    "loading_order": 999,
     "requires": [],
     "optional": [],
     "js": "index.js",
     "css": "style.css",
     "author": "hydravnss",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "homePage": "https://github.com/hydravnss/lightdark",
     "auto_update": false
 }
