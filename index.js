@@ -1,88 +1,135 @@
-import {
-    extension_settings,
-    renderExtensionTemplateAsync
-} from "../../../extensions.js";
-
+import { extension_settings, renderExtensionTemplateAsync } from "../../../extensions.js";
 import { saveSettingsDebounced } from "../../../../script.js";
 
 const extensionName = "lightdark";
 
-const defaultSettings = {
-    mode: "dark"
+const defaults = {
+    mode: "dark",
 };
 
-async function init() {
-    extension_settings[extensionName] ??= {
-        ...defaultSettings
-    };
+let observer = null;
+let applying = false;
 
-    extension_settings[extensionName].mode ??= "dark";
-
-    const html = await renderExtensionTemplateAsync(
-        `third-party/${extensionName}`,
-        "settings"
-    );
-
-    $("#extensions_settings").append(html);
-
-    updateMode(extension_settings[extensionName].mode);
-
-    $("#lightdark_switch").on("click", function () {
-        const current = extension_settings[extensionName].mode;
-
-        const newMode =
-            current === "dark"
-                ? "light"
-                : "dark";
-
-        extension_settings[extensionName].mode = newMode;
-
-        saveSettingsDebounced();
-
-        updateMode(newMode);
-    });
+function getMode() {
+    return extension_settings[extensionName]?.mode || "dark";
 }
 
-function updateMode(mode) {
-    const isLight = mode === "light";
+function applyMode(mode) {
+    if (applying) return;
+    applying = true;
 
-    // Nettoyage
-    document.documentElement.classList.remove(
+    const root = document.documentElement;
+    const body = document.body;
+
+    root.classList.remove(
         "lightdark-light",
         "lightdark-dark"
     );
 
-    document.body.classList.remove(
+    body?.classList.remove(
         "lightdark-light",
         "lightdark-dark"
     );
 
-    // Nouveau mode
-    const className = isLight
+    const className = mode === "light"
         ? "lightdark-light"
         : "lightdark-dark";
 
-    document.documentElement.classList.add(className);
-    document.body.classList.add(className);
+    root.classList.add(className);
+    body?.classList.add(className);
 
-    // Bouton
-    $("#lightdark_switch").text(
-        isLight
-            ? "🌙 Mode sombre"
-            : "☀️ Mode clair"
+    root.style.setProperty(
+        "color-scheme",
+        mode,
+        "important"
     );
 
     $("#lightdark_status").text(
-        isLight
-            ? "Mode clair activé"
-            : "Mode sombre activé"
+        mode === "light"
+            ? "☀️ Mode clair forcé"
+            : "🌑 Mode sombre forcé"
+    );
+
+    $("#lightdark_switch").text(
+        mode === "light"
+            ? "🌙 Passer en mode sombre"
+            : "☀️ Passer en mode clair"
+    );
+
+    applying = false;
+}
+
+function setMode(mode) {
+    extension_settings[extensionName].mode = mode;
+
+    saveSettingsDebounced();
+
+    applyMode(mode);
+}
+
+async function init() {
+    extension_settings[extensionName] ??= {};
+    extension_settings[extensionName].mode ??= defaults.mode;
+
+    try {
+        const html = await renderExtensionTemplateAsync(
+            `third-party/${extensionName}`,
+            "settings"
+        );
+
+        $("#extensions_settings").append(html);
+    } catch (error) {
+        console.error(
+            "[LightDark] Impossible de charger settings.html",
+            error
+        );
+    }
+
+    applyMode(getMode());
+
+    $(document).off(
+        "click.lightdark",
+        "#lightdark_switch"
+    );
+
+    $(document).on(
+        "click.lightdark",
+        "#lightdark_switch",
+        () => {
+            setMode(
+                getMode() === "dark"
+                    ? "light"
+                    : "dark"
+            );
+        }
+    );
+
+    if (observer) {
+        observer.disconnect();
+    }
+
+    observer = new MutationObserver(() => {
+        const root = document.documentElement;
+
+        const expected =
+            getMode() === "light"
+                ? "lightdark-light"
+                : "lightdark-dark";
+
+        if (!root.classList.contains(expected)) {
+            applyMode(getMode());
+        }
+    });
+
+    observer.observe(
+        document.documentElement,
+        {
+            attributes: true,
+            attributeFilter: ["class"],
+        }
     );
 }
 
 jQuery(async () => {
-    try {
-        await init();
-    } catch (error) {
-        console.error("[LightDark] Erreur:", error);
-    }
+    await init();
 });
