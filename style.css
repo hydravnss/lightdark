@@ -1,6 +1,6 @@
 /* ==========================================================
-   LIGHTDARK V2
-   Force le thème Draco en clair / sombre
+   LIGHTDARK V3
+   FORCE LIGHT / DARK
    ========================================================== */
 
 
@@ -10,18 +10,17 @@
 
 html.lightdark-dark,
 body.lightdark-dark {
-    --ld-bg: #000000;
-    --ld-bg-2: #0b0b0b;
-    --ld-bg-3: #151515;
 
-    --ld-text: #f5f5f5;
-    --ld-text-2: #b9b9b9;
-    --ld-muted: #777777;
+    --ld-bg: #000000 !important;
+    --ld-bg-2: #0b0b0b !important;
+    --ld-bg-3: #151515 !important;
 
-    --ld-border: #292929;
+    --ld-text: #f5f5f5 !important;
+    --ld-text-2: #b9b9b9 !important;
+    --ld-muted: #777777 !important;
 
-    --ld-input: #111111;
-    --ld-button: #1a1a1a;
+    --ld-border: #292929 !important;
+    --ld-input: #111111 !important;
 
     color-scheme: dark !important;
 }
@@ -33,124 +32,107 @@ body.lightdark-dark {
 
 html.lightdark-light,
 body.lightdark-light {
-    --ld-bg: #f5f5f7;
-    --ld-bg-2: #ffffff;
-    --ld-bg-3: #eeeeF2;
 
-    --ld-text: #111111;
-    --ld-text-2: #555555;
-    --ld-muted: #888888;
+    --ld-bg: #f5f5f7 !important;
+    --ld-bg-2: #ffffff !important;
+    --ld-bg-3: #eeeeF2 !important;
 
-    --ld-border: #d2d2d7;
+    --ld-text: #111111 !important;
+    --ld-text-2: #555555 !important;
+    --ld-muted: #888888 !important;
 
-    --ld-input: #ffffff;
-    --ld-button: #ffffff;
+    --ld-border: #d2d2d7 !important;
+    --ld-input: #ffffff !important;
 
     color-scheme: light !important;
 }
 
 
 /* ==========================================================
-   🔥 VARIABLES NATIVES SILLYTAVERN
+   🌐 TOUTE LA PAGE
    ========================================================== */
 
 html.lightdark-light,
-body.lightdark-light {
+html.lightdark-light body,
+html.lightdark-light #main,
+html.lightdark-light #background,
+html.lightdark-light #sheld,
+html.lightdark-light #chat {
 
-    --SmartThemeBodyColor: #111111 !important;
-    --SmartThemeBodyColorLight: #555555 !important;
-    --SmartThemeBodyColorDark: #000000 !important;
+    background-color:
+        #f5f5f7 !important;
 
-    --SmartThemeBlurTintColor: #ffffff !important;
-    --SmartThemeChatTintColor: #f5f5f7 !important;
-
-    --SmartThemeUserMesBlurTintColor: #ffffff !important;
-    --SmartThemeBotMesBlurTintColor: #ffffff !important;
-
-    --SmartThemeBorderColor: #d2d2d7 !important;
-
-    --SmartThemeShadowColor:
-        rgba(0, 0, 0, 0.12) !important;
-
-    --SmartThemeEmColor: #555555 !important;
-    --SmartThemeQuoteColor: #666666 !important;
+    color:
+        #111111 !important;
 }
 
 
 html.lightdark-dark,
-body.lightdark-dark {
-
-    --SmartThemeBodyColor: #f5f5f5 !important;
-    --SmartThemeBodyColorLight: #b9b9b9 !important;
-    --SmartThemeBodyColorDark: #ffffff !important;
-
-    --SmartThemeBlurTintColor: #111111 !important;
-    --SmartThemeChatTintColor: #000000 !important;
-
-    --SmartThemeUserMesBlurTintColor: #000000 !important;
-    --SmartThemeBotMesBlurTintColor: #000000 !important;
-
-    --SmartThemeBorderColor: #292929 !important;
-
-    --SmartThemeShadowColor:
-        rgba(0, 0, 0, 0.65) !important;
-
-    --SmartThemeEmColor: #b9b9b9 !important;
-    --SmartThemeQuoteColor: #b9b9b9 !important;
-}
-
-
-/* ==========================================================
-   🌐 INTERFACE PRINCIPALE
-   ========================================================== */
-
-html.lightdark-light body,
 html.lightdark-dark body,
-
-html.lightdark-light #main,
 html.lightdark-dark #main,
-
-html.lightdark-light #background,
 html.lightdark-dark #background,
-
-html.lightdark-light #sheld,
 html.lightdark-dark #sheld,
-
-html.lightdark-light #chat,
 html.lightdark-dark #chat {
 
-    background:
-        var(--ld-bg) !important;
+    background-color:
+        #000000 !important;
 
     color:
-        var(--ld-text) !important;
+        #f5f5f5 !important;
 }
 
 
 /* ==========================================================
-   🔝 BARRE DU HAUT / NAVIGATION
+   🔝 HAUT DE L'ÉCRAN
    ========================================================== */
 
+/* LIGHT */
+
 html.lightdark-light #top-bar,
-html.lightdark-light #left-nav-panel,
-html.lightdark-light #right-nav-panel,
-html.lightdark-light #left-nav-panel-holder,
-html.lightdark-light #right-nav-panel-holder,
+html.lightdark-light #top-bar-wrapper,
+html.lightdark-light #top-bar * {
 
-html.lightdark-dark #top-bar,
-html.lightdark-dark #left-nav-panel,
-html.lightdark-dark #right-nav-panel,
-html.lightdark-dark #left-nav-panel-holder,
-html.lightdark-dark #right-nav-panel-holder {
-
-    background:
-        var(--ld-bg) !important;
+    background-color:
+        #f5f5f7 !important;
 
     color:
-        var(--ld-text) !important;
+        #111111 !important;
 
     border-color:
-        var(--ld-border) !important;
+        #d2d2d7 !important;
+}
+
+
+/* DARK */
+
+html.lightdark-dark #top-bar,
+html.lightdark-dark #top-bar-wrapper {
+
+    background-color:
+        #000000 !important;
+
+    color:
+        #f5f5f5 !important;
+}
+
+
+/* Zone supérieure globale */
+
+html.lightdark-light body::before {
+    background: #f5f5f7 !important;
+}
+
+
+/* ==========================================================
+   📱 SAFE AREA IPHONE
+   ========================================================== */
+
+html.lightdark-light body {
+    background-color: #f5f5f7 !important;
+}
+
+html.lightdark-dark body {
+    background-color: #000000 !important;
 }
 
 
@@ -159,69 +141,72 @@ html.lightdark-dark #right-nav-panel-holder {
    ========================================================== */
 
 html.lightdark-light .mes,
-html.lightdark-dark .mes,
-
 html.lightdark-light .mes_block,
-html.lightdark-dark .mes_block,
+html.lightdark-light .mes_text {
 
-html.lightdark-light .mes_text,
+    background:
+        transparent !important;
+
+    color:
+        #111111 !important;
+}
+
+
+html.lightdark-dark .mes,
+html.lightdark-dark .mes_block,
 html.lightdark-dark .mes_text {
 
     background:
         transparent !important;
+
+    color:
+        #f5f5f5 !important;
 }
 
 
-html.lightdark-light .mes,
-html.lightdark-light .mes_text,
+/* Texte */
+
 html.lightdark-light .mes_text p,
 html.lightdark-light .mes_text span,
-html.lightdark-light .mes_text div,
+html.lightdark-light .mes_text div {
 
-html.lightdark-dark .mes,
-html.lightdark-dark .mes_text,
+    color:
+        #111111 !important;
+}
+
+
 html.lightdark-dark .mes_text p,
 html.lightdark-dark .mes_text span,
 html.lightdark-dark .mes_text div {
 
     color:
-        var(--ld-text) !important;
+        #f5f5f5 !important;
 }
 
 
-/* ==========================================================
-   ✏️ ITALIQUES
-   ========================================================== */
+/* Italiques */
 
 html.lightdark-light .mes_text em,
-html.lightdark-light .mes_text i,
+html.lightdark-light .mes_text i {
+
+    color:
+        #555555 !important;
+}
+
 
 html.lightdark-dark .mes_text em,
 html.lightdark-dark .mes_text i {
 
     color:
-        var(--ld-text-2) !important;
-}
-
-
-/* ==========================================================
-   🔤 GRAS
-   ========================================================== */
-
-html.lightdark-light .mes_text strong,
-html.lightdark-light .mes_text b,
-
-html.lightdark-dark .mes_text strong,
-html.lightdark-dark .mes_text b {
-
-    color:
-        var(--ld-text) !important;
+        #b9b9b9 !important;
 }
 
 
 /* ==========================================================
    👤 NOMS
-   Ne modifie PAS les couleurs personnalisées des personnages.
+   IMPORTANT :
+   On ne force PAS la couleur ici afin de conserver
+   les couleurs personnalisées de ton thème Draco.
    ========================================================== */
 
 html.lightdark-light .mes .name_text,
@@ -233,78 +218,168 @@ html.lightdark-dark .mes .name_text {
 
 
 /* ==========================================================
-   🖼️ AVATARS
+   ⌨️ FORMULAIRE
    ========================================================== */
 
-html.lightdark-light .mes .avatar,
-html.lightdark-light .mes .avatar img {
+html.lightdark-light #form_sheld {
 
     background:
-        #eeeeF2 !important;
+        #f5f5f7 !important;
+
+    border:
+        none !important;
+
+    border-top:
+        none !important;
+
+    border-bottom:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
 }
 
 
-html.lightdark-dark .mes .avatar,
-html.lightdark-dark .mes .avatar img {
+html.lightdark-dark #form_sheld {
 
     background:
-        #111111 !important;
+        #000000 !important;
+
+    border:
+        none !important;
+
+    border-top:
+        none !important;
+
+    border-bottom:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
 }
 
 
 /* ==========================================================
-   ⌨️ BARRE DE FRAPPE
+   BARRE DE SAISIE
    ========================================================== */
 
-html.lightdark-light #form_sheld,
-html.lightdark-dark #form_sheld {
+html.lightdark-light #send_form {
 
     background:
-        var(--ld-bg) !important;
+        #ffffff !important;
 
-    color:
-        var(--ld-text) !important;
+    border:
+        none !important;
 
-    border-color:
-        var(--ld-border) !important;
+    border-top:
+        none !important;
+
+    border-bottom:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
 }
 
 
-html.lightdark-light #send_form,
 html.lightdark-dark #send_form {
 
     background:
-        var(--ld-input) !important;
+        #111111 !important;
 
-    color:
-        var(--ld-text) !important;
+    border:
+        none !important;
 
-    border-color:
-        var(--ld-border) !important;
+    border-top:
+        none !important;
+
+    border-bottom:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
 }
 
 
-html.lightdark-light #send_textarea,
+/* ==========================================================
+   TEXTAREA
+   ========================================================== */
+
+html.lightdark-light #send_textarea {
+
+    background:
+        #ffffff !important;
+
+    color:
+        #111111 !important;
+
+    border:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
+}
+
+
 html.lightdark-dark #send_textarea {
 
     background:
-        var(--ld-input) !important;
+        #111111 !important;
 
     color:
-        var(--ld-text) !important;
+        #f5f5f5 !important;
 
-    border-color:
-        var(--ld-border) !important;
+    border:
+        none !important;
+
+    box-shadow:
+        none !important;
+
+    outline:
+        none !important;
 }
 
 
-html.lightdark-light #send_textarea::placeholder {
-    color: #888888 !important;
-}
+/* ==========================================================
+   🚫 SUPPRESSION DE LA LIGNE GRISE
+   ========================================================== */
 
+html.lightdark-light #form_sheld::before,
+html.lightdark-light #form_sheld::after,
+html.lightdark-light #send_form::before,
+html.lightdark-light #send_form::after,
 
-html.lightdark-dark #send_textarea::placeholder {
-    color: #777777 !important;
+html.lightdark-dark #form_sheld::before,
+html.lightdark-dark #form_sheld::after,
+html.lightdark-dark #send_form::before,
+html.lightdark-dark #send_form::after {
+
+    display:
+        none !important;
+
+    content:
+        none !important;
+
+    border:
+        none !important;
+
+    box-shadow:
+        none !important;
 }
 
 
@@ -313,74 +388,62 @@ html.lightdark-dark #send_textarea::placeholder {
    ========================================================== */
 
 html.lightdark-light button,
-html.lightdark-light .menu_button,
-html.lightdark-light input,
-html.lightdark-light select,
-html.lightdark-light textarea,
-
-html.lightdark-dark button,
-html.lightdark-dark .menu_button,
-html.lightdark-dark input,
-html.lightdark-dark select,
-html.lightdark-dark textarea {
+html.lightdark-light .menu_button {
 
     color:
-        var(--ld-text) !important;
+        #111111 !important;
 
     border-color:
-        var(--ld-border) !important;
+        #d2d2d7 !important;
+}
+
+
+html.lightdark-dark button,
+html.lightdark-dark .menu_button {
+
+    color:
+        #f5f5f5 !important;
+
+    border-color:
+        #292929 !important;
 }
 
 
 /* ==========================================================
-   🪟 MENUS / POPUPS
+   🪟 MENUS
    ========================================================== */
 
 html.lightdark-light .popup,
 html.lightdark-light .menu,
 html.lightdark-light .dropdown-menu,
 html.lightdark-light #contextMenu,
-html.lightdark-light .ui-dialog,
-html.lightdark-light .ui-dialog-content,
+html.lightdark-light .ui-dialog {
+
+    background:
+        #ffffff !important;
+
+    color:
+        #111111 !important;
+
+    border-color:
+        #d2d2d7 !important;
+}
+
 
 html.lightdark-dark .popup,
 html.lightdark-dark .menu,
 html.lightdark-dark .dropdown-menu,
 html.lightdark-dark #contextMenu,
-html.lightdark-dark .ui-dialog,
-html.lightdark-dark .ui-dialog-content {
+html.lightdark-dark .ui-dialog {
 
     background:
-        var(--ld-bg-2) !important;
+        #0b0b0b !important;
 
     color:
-        var(--ld-text) !important;
+        #f5f5f5 !important;
 
     border-color:
-        var(--ld-border) !important;
-}
-
-
-/* ==========================================================
-   📋 INPUTS
-   ========================================================== */
-
-html.lightdark-light input,
-html.lightdark-light textarea,
-html.lightdark-light select,
-
-html.lightdark-dark input,
-html.lightdark-dark textarea,
-html.lightdark-dark select {
-
-    background-color:
-        var(--ld-input) !important;
-
-    color:
-        var(--ld-text) !important;
-
-    border-color:
-        var(--ld-border) !important;
+        #292929 !important;
 }
 
 
@@ -388,16 +451,20 @@ html.lightdark-dark select {
    📜 SCROLLBAR
    ========================================================== */
 
-html.lightdark-light *,
-html.lightdark-dark * {
-
+html.lightdark-light * {
     scrollbar-color:
-        var(--ld-border) var(--ld-bg) !important;
+        #c7c7cc #f5f5f7 !important;
+}
+
+
+html.lightdark-dark * {
+    scrollbar-color:
+        #292929 #000000 !important;
 }
 
 
 /* ==========================================================
-   ⚙️ SETTINGS LIGHTDARK
+   ⚙️ SETTINGS
    ========================================================== */
 
 .lightdark-settings {
@@ -421,14 +488,12 @@ html.lightdark-dark * {
 
 
 /* ==========================================================
-   ✨ TRANSITION
+   ✨ PAS DE TRANSITION QUI CASSE LE LAYOUT
    ========================================================== */
 
-html.lightdark-light *,
-html.lightdark-dark * {
+html.lightdark-light,
+html.lightdark-dark {
 
     transition:
-        background-color .15s ease,
-        color .15s ease,
-        border-color .15s ease !important;
+        background-color .15s ease;
 }
